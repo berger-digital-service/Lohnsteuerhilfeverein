@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lohnsteuerhilfeverein Apolda e.V. – Ihre Steuerberatung in Apolda. Einkommensteuererklärung für Arbeitnehmer, Rentner, Beamte und mehr. Mitgliedschaft ab 39 €/Jahr.">
+<title>Lohnsteuerhilfeverein Apolda e.V. — Ihre Steuern. Unser Job.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal:    #0A2E2E;
+  --teal-mid:#124040;
+  --lime:    #C2F542;
+  --lime-dk: #A0D426;
+  --sand:    #F5F0E8;
+  --sand-dk: #EAE3D4;
+  --white:   #FFFFFF;
+  --slate:   #607070;
+  --ink:     #0D1F1F;
+  --border:  #D8D2C4;
+  --red:     #E84A2F;
+  --r:       16px;
+  --r-lg:    28px;
+  --sh:      0 24px 60px -20px rgba(10,46,46,0.28);
+  --sh-sm:   0 8px 28px -10px rgba(10,46,46,0.18);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; background:var(--sand); color:var(--ink); line-height:1.6; overflow-x:hidden; }
+h1,h2,h3 { font-family:'DM Serif Display',serif; letter-spacing:-0.015em; }
+a { color:inherit; text-decoration:none; }
+img { max-width:100%; display:block; }
+.wrap { width:92%; max-width:1160px; margin:0 auto; }
+
+/* ─── HEADER ─── */
+header {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  padding:16px 0;
+  transition:all .35s ease;
+}
+header.scrolled {
+  background:rgba(10,46,46,0.96); backdrop-filter:blur(16px);
+  box-shadow:0 4px 24px rgba(0,0,0,0.3); padding:11px 0;
+}
+.hrow { display:flex; align-items:center; justify-content:space-between; }
+.brand { display:flex; align-items:center; gap:10px; }
+.brand-logo {
+  width:40px; height:40px; background:var(--lime); border-radius:10px;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.brand-logo svg { width:22px; height:22px; }
+.brand-text { line-height:1.2; }
+.brand-text strong { display:block; font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.98rem; color:var(--white); }
+.brand-text small { font-size:0.66rem; letter-spacing:0.07em; text-transform:uppercase; color:rgba(255,255,255,0.55); }
+nav.main { display:flex; gap:4px; }
+nav.main a { color:rgba(255,255,255,0.75); font-weight:500; font-size:0.92rem; padding:9px 15px; border-radius:99px; transition:.25s; }
+nav.main a:hover { background:rgba(255,255,255,0.1); color:#fff; }
+.hcta {
+  background:var(--lime); color:var(--teal); font-weight:700; font-size:0.88rem;
+  padding:11px 20px; border-radius:99px; transition:.25s;
+}
+.hcta:hover { background:var(--lime-dk); transform:translateY(-2px); }
+.burger { display:none; background:none; border:none; cursor:pointer; }
+.burger span { display:block; width:22px; height:2px; background:#fff; margin:5px 0; border-radius:2px; }
+
+/* ─── MOBILE MENU ─── */
+.mmenu {
+  position:fixed; inset:0; background:var(--teal); z-index:300;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px;
+  transform:translateY(-100%); transition:transform .4s ease;
+}
+.mmenu.open { transform:translateY(0); }
+.mmenu a { font-family:'DM Serif Display',serif; font-size:1.8rem; color:#fff; }
+.mmenu .mx { position:absolute; top:22px; right:22px; background:none; border:none; color:#fff; font-size:2rem; cursor:pointer; }
+
+/* ─── HERO ─── */
+.hero {
+  background:var(--teal);
+  padding:140px 0 0;
+  overflow:hidden;
+  position:relative;
+  min-height:100vh;
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+/* Subtle dot grid bg */
+.hero::before {
+  content:""; position:absolute; inset:0; z-index:0;
+  background-image: radial-gradient(rgba(194,245,66,0.12) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+.hero-top { position:relative; z-index:1; padding-bottom:60px; }
+.pill {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(194,245,66,0.12); border:1px solid rgba(194,245,66,0.3);
+  color:var(--lime); font-size:0.78rem; font-weight:600; letter-spacing:0.07em;
+  text-transform:uppercase; padding:7px 15px; border-radius:99px; margin-bottom:28px;
+}
+.pill span { width:7px; height:7px; border-radius:50%; background:var(--lime); animation:blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+.hero h1 { font-size:clamp(2.6rem,5.5vw,4.4rem); color:#fff; line-height:1.05; max-width:680px; margin-bottom:24px; }
+.hero h1 em { font-style:italic; color:var(--lime); }
+.hero .sub { color:rgba(255,255,255,0.65); font-size:1.1rem; max-width:520px; margin-bottom:36px; }
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px; }
+.btn { display:inline-flex; align-items:center; gap:9px; font-weight:600; font-size:0.96rem; padding:15px 26px; border-radius:99px; transition:.25s; cursor:pointer; border:none; font-family:'DM Sans',sans-serif; }
+.btn-lime { background:var(--lime); color:var(--teal); box-shadow:0 14px 30px -10px rgba(194,245,66,0.5); }
+.btn-lime:hover { transform:translateY(-3px); background:var(--lime-dk); }
+.btn-outline { background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,0.3); }
+.btn-outline:hover { background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.6); }
+.stats-row { display:flex; gap:48px; flex-wrap:wrap; }
+.stat b { display:block; font-family:'DM Serif Display',serif; font-size:2rem; color:#fff; }
+.stat span { font-size:0.82rem; color:rgba(255,255,255,0.5); }
+
+/* Angled bottom strip */
+.hero-band {
+  background:var(--sand);
+  clip-path:polygon(0 60px, 100% 0, 100% 100%, 0 100%);
+  padding:80px 0 0;
+  position:relative; z-index:1;
+}
+.hero-img-row {
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  gap:16px; transform:translateY(-40px);
+}
+.hero-img-card {
+  border-radius:var(--r-lg); overflow:hidden; aspect-ratio:3/4;
+  position:relative;
+}
+.hero-img-card:nth-child(2) { transform:translateY(32px); }
+.hero-img-card img { width:100%; height:100%; object-fit:cover; }
+.img-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(10,46,46,0.7) 0%, transparent 55%);
+}
+.img-label {
+  position:absolute; bottom:18px; left:18px;
+  background:var(--lime); color:var(--teal);
+  font-weight:700; font-size:0.8rem; padding:6px 12px; border-radius:99px;
+}
+
+/* ─── WHO WE SERVE ─── */
+.who { background:var(--sand); padding:80px 0; }
+.section-tag {
+  display:inline-flex; align-items:center; gap:6px; font-size:0.78rem; font-weight:700;
+  letter-spacing:0.08em; text-transform:uppercase; color:var(--teal);
+  background:var(--sand-dk); padding:7px 14px; border-radius:99px; margin-bottom:18px;
+}
+.section-tag::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--teal); display:block; }
+.who h2 { font-size:2.4rem; margin-bottom:14px; max-width:520px; }
+.who .lead { color:var(--slate); max-width:520px; margin-bottom:48px; }
+.who-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.who-card {
+  background:var(--white); border:1px solid var(--border); border-radius:var(--r);
+  padding:28px 22px;
+  transition:transform .3s, box-shadow .3s, border-color .3s;
+}
+.who-card:hover { transform:translateY(-5px); box-shadow:var(--sh); border-color:transparent; }
+.who-icon {
+  width:48px; height:48px; background:var(--teal); border-radius:12px;
+  display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+}
+.who-card h3 { font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.02rem; margin-bottom:8px; }
+.who-card p { color:var(--slate); font-size:0.9rem; }
+
+/* ─── LEISTUNGEN ─── */
+.leistungen { background:var(--teal); padding:96px 0; }
+.leistungen .section-tag { background:rgba(194,245,66,0.1); color:var(--lime); }
+.leistungen .section-tag::before { background:var(--lime); }
+.leistungen h2 { color:#fff; font-size:2.6rem; margin-bottom:16px; }
+.leistungen .lead { color:rgba(255,255,255,0.6); margin-bottom:56px; max-width:520px; }
+.l-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.l-card {
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--r-lg); padding:36px 32px;
+  display:flex; gap:22px;
+  transition:background .3s, border-color .3s;
+}
+.l-card:hover { background:rgba(194,245,66,0.07); border-color:rgba(194,245,66,0.25); }
+.l-num {
+  font-family:'DM Serif Display',serif; font-size:2.4rem; color:rgba(194,245,66,0.25);
+  line-height:1; flex-shrink:0; padding-top:4px; min-width:42px;
+}
+.l-card h3 { font-family:'DM Sans',sans-serif; font-weight:700; color:#fff; margin-bottom:8px; }
+.l-card p { color:rgba(255,255,255,0.55); font-size:0.93rem; }
+
+/* ─── BEITRAG ─── */
+.beitrag { background:var(--sand); padding:96px 0; }
+.beitrag-grid { display:grid; grid-template-columns:1fr 1fr; gap:54px; align-items:center; }
+.beitrag-visual {
+  background:var(--teal); border-radius:var(--r-lg); padding:44px 38px;
+  position:relative; overflow:hidden;
+}
+.beitrag-visual::before {
+  content:""; position:absolute; top:-80px; right:-80px; width:280px; height:280px;
+  border-radius:50%; background:rgba(194,245,66,0.08);
+}
+.bv-label { color:rgba(255,255,255,0.5); font-size:0.82rem; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:10px; }
+.bv-price { font-family:'DM Serif Display',serif; font-size:3.8rem; color:#fff; line-height:1; }
+.bv-price sup { font-size:1.6rem; vertical-align:super; }
+.bv-price sub { font-size:1rem; color:rgba(255,255,255,0.5); font-family:'DM Sans',sans-serif; font-weight:400; }
+.bv-hint { color:rgba(255,255,255,0.45); font-size:0.88rem; margin-top:10px; margin-bottom:32px; }
+.bv-list { list-style:none; display:flex; flex-direction:column; gap:12px; }
+.bv-list li { display:flex; align-items:flex-start; gap:12px; color:rgba(255,255,255,0.8); font-size:0.94rem; }
+.bv-list li::before {
+  content:"✓"; width:22px; height:22px; background:var(--lime); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.7rem; font-weight:900; color:var(--teal); flex-shrink:0; margin-top:1px;
+}
+.beitrag-text h2 { font-size:2.4rem; margin-bottom:16px; }
+.beitrag-text p { color:var(--slate); margin-bottom:18px; }
+.beitrag-text .btn-lime { font-size:0.94rem; }
+
+/* ─── PROCESS ─── */
+.process { background:var(--sand-dk); padding:96px 0; }
+.process h2 { font-size:2.5rem; margin-bottom:14px; }
+.process .lead { color:var(--slate); margin-bottom:56px; }
+.p-track {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  position:relative; gap:0;
+}
+.p-track::before {
+  content:""; position:absolute; top:28px; left:10%; right:10%; height:2px;
+  background:repeating-linear-gradient(90deg, var(--teal) 0, var(--teal) 8px, transparent 8px, transparent 18px);
+  z-index:0;
+}
+.p-step { position:relative; z-index:1; padding:0 12px; }
+.p-dot {
+  width:56px; height:56px; background:var(--teal); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; margin:0 auto 20px;
+  font-family:'DM Serif Display',serif; font-size:1.3rem; color:#fff;
+  border:4px solid var(--sand-dk);
+  box-shadow:var(--sh-sm);
+}
+.p-step:nth-child(even) .p-dot { background:var(--lime); color:var(--teal); }
+.p-step h4 { text-align:center; font-family:'DM Sans',sans-serif; font-weight:700; margin-bottom:8px; }
+.p-step p { text-align:center; color:var(--slate); font-size:0.9rem; }
+
+/* ─── PHOTO SECTION ─── */
+.photo-band { overflow:hidden; height:380px; position:relative; }
+.photo-band img { width:100%; height:100%; object-fit:cover; object-position:center 30%; }
+.photo-band::after {
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to right, rgba(10,46,46,0.85) 0%, rgba(10,46,46,0.2) 55%, transparent);
+}
+.photo-content {
+  position:absolute; top:50%; left:0; transform:translateY(-50%);
+  z-index:1; padding:0 5%;
+}
+.photo-content h2 { font-size:2.6rem; color:#fff; max-width:480px; margin-bottom:18px; }
+.photo-content p { color:rgba(255,255,255,0.75); max-width:380px; margin-bottom:26px; }
+
+/* ─── ÖFFNUNGSZEITEN ─── */
+.oeffnung { background:var(--sand); padding:96px 0; }
+.oz-grid { display:grid; grid-template-columns:1fr 1fr; gap:54px; }
+.oz-times { background:var(--white); border:1px solid var(--border); border-radius:var(--r-lg); padding:36px; }
+.oz-times h3 { font-family:'DM Sans',sans-serif; font-size:1.1rem; font-weight:700; margin-bottom:22px; padding-bottom:14px; border-bottom:1px solid var(--border); }
+.oz-row { display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px dashed var(--border); font-size:0.96rem; }
+.oz-row:last-child { border-bottom:none; }
+.oz-row .day { color:var(--slate); }
+.oz-row .time { font-weight:600; }
+.oz-closed { color:var(--slate); font-style:italic; }
+.oz-note { background:rgba(194,245,66,0.15); border:1px solid rgba(10,46,46,0.15); border-radius:var(--r); padding:18px; margin-top:22px; font-size:0.9rem; color:var(--teal); }
+
+/* ─── CONTACT ─── */
+.contact { background:var(--teal); padding:96px 0; }
+.contact .section-tag { background:rgba(194,245,66,0.1); color:var(--lime); }
+.contact .section-tag::before { background:var(--lime); }
+.contact h2 { color:#fff; font-size:2.4rem; margin-bottom:14px; }
+.contact .lead { color:rgba(255,255,255,0.6); margin-bottom:48px; }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:42px; align-items:start; }
+.cform { background:var(--sand); border-radius:var(--r-lg); padding:38px; }
+.field { margin-bottom:18px; }
+.field label { display:block; font-size:0.84rem; font-weight:700; color:var(--teal); margin-bottom:7px; letter-spacing:0.02em; }
+.field input,.field textarea {
+  width:100%; padding:13px 16px; border-radius:12px;
+  border:1.5px solid var(--border); background:var(--white);
+  font-family:'DM Sans',sans-serif; font-size:0.96rem; color:var(--ink);
+  transition:border-color .25s;
+}
+.field input:focus,.field textarea:focus { outline:none; border-color:var(--teal); }
+.cform button { width:100%; justify-content:center; margin-top:6px; }
+.cinfo { display:flex; flex-direction:column; gap:20px; }
+.ci { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:var(--r); padding:22px 24px; }
+.ci h4 { color:rgba(255,255,255,0.5); font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; font-family:'DM Sans',sans-serif; font-weight:700; margin-bottom:7px; }
+.ci p,.ci a { color:#fff; font-size:0.96rem; }
+.ci a:hover { color:var(--lime); }
+.map-wrap { border-radius:var(--r); overflow:hidden; border:1px solid rgba(255,255,255,0.12); }
+.map-wrap iframe { display:block; width:100%; height:200px; border:0; }
+
+/* ─── FOOTER ─── */
+footer { background:var(--ink); padding:54px 0 26px; }
+.ft { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:30px; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,0.08); }
+.ft-brand strong { color:#fff; font-family:'DM Serif Display',serif; font-size:1.2rem; display:block; margin-bottom:8px; }
+.ft-brand p { color:rgba(255,255,255,0.4); font-size:0.88rem; max-width:260px; }
+.ft-cols { display:flex; gap:48px; flex-wrap:wrap; }
+.ft-col h5 { font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:14px; }
+.ft-col a { display:block; color:rgba(255,255,255,0.6); font-size:0.91rem; margin-bottom:10px; transition:.2s; }
+.ft-col a:hover { color:var(--lime); }
+.ft-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:22px; flex-wrap:wrap; gap:8px; }
+.ft-bottom p { color:rgba(255,255,255,0.3); font-size:0.82rem; }
+
+/* ─── COOKIE ─── */
+.cookie {
+  position:fixed; bottom:18px; left:50%; transform:translateX(-50%) translateY(160%);
+  width:92%; max-width:620px; background:var(--sand); border:1px solid var(--border);
+  border-radius:18px; padding:20px 24px; display:flex; align-items:center; gap:16px;
+  box-shadow:var(--sh); z-index:500; transition:transform .5s ease; flex-wrap:wrap;
+}
+.cookie.show { transform:translateX(-50%) translateY(0); }
+.cookie p { flex:1; font-size:0.85rem; color:var(--slate); min-width:220px; }
+.cookie a { color:var(--teal); text-decoration:underline; }
+
+/* ─── REVEAL ─── */
+.rv { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+.rv.in { opacity:1; transform:translateY(0); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width:960px) {
+  nav.main,.hcta { display:none; }
+  .burger { display:block; }
+  .who-grid { grid-template-columns:1fr 1fr; }
+  .l-grid { grid-template-columns:1fr; }
+  .beitrag-grid,.contact-grid,.oz-grid { grid-template-columns:1fr; }
+  .p-track { grid-template-columns:1fr 1fr; gap:28px; }
+  .p-track::before { display:none; }
+  .hero-img-row { grid-template-columns:1fr 1fr; }
+  .hero-img-card:nth-child(3) { display:none; }
+  .hero-img-card:nth-child(2) { transform:none; }
+}
+@media (max-width:560px) {
+  .who-grid { grid-template-columns:1fr; }
+  .p-track { grid-template-columns:1fr; }
+  .hero-img-row { grid-template-columns:1fr; }
+  .hero-img-card { aspect-ratio:16/7; }
+  .stats-row { gap:24px; }
+  .l-card { flex-direction:column; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap hrow">
+    <a href="#top" class="brand">
+      <span class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="2" fill="#0A2E2E"/><rect x="13" y="3" width="8" height="5" rx="2" fill="#0A2E2E"/><rect x="13" y="10" width="8" height="11" rx="2" fill="#0A2E2E"/><rect x="3" y="13" width="8" height="8" rx="2" fill="#0A2E2E"/></svg>
+      </span>
+      <span class="brand-text">
+        <strong>Lohnsteuerhilfeverein</strong>
+        <small>Apolda e.V.</small>
+      </span>
+    </a>
+    <nav class="main">
+      <a href="#who">Wer wir helfen</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#beitrag">Mitgliedschaft</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+    <a href="#contact" class="hcta">Termin vereinbaren</a>
+    <button class="burger" id="bBtn"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mmenu" id="mm">
+  <button class="mx" id="mClose">&times;</button>
+  <a href="#who">Wer wir helfen</a>
+  <a href="#leistungen">Leistungen</a>
+  <a href="#beitrag">Mitgliedschaft</a>
+  <a href="#contact">Kontakt</a>
+</div>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-top">
+    <div class="wrap">
+      <div class="pill"><span></span>Beratungsstelle Apolda · Thüringen</div>
+      <h1>Ihre Steuern.<br><em>Unser Job.</em><br>Ihr Vorteil.</h1>
+      <p class="sub">Als gemeinnütziger Lohnsteuerhilfeverein holen wir für Sie die maximale Steuerrückerstattung heraus — zu einem fairen Mitgliedsbeitrag statt teuren Steuerberatertarifen.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-lime">Kostenlosen Termin buchen</a>
+        <a href="#leistungen" class="btn btn-outline">Unsere Leistungen</a>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><b>ab 39 €</b><span>Mitgliedsbeitrag / Jahr</span></div>
+        <div class="stat"><b>100%</b><span>Steuervorteile ausschöpfen</span></div>
+        <div class="stat"><b>§ 4 Nr.&thinsp;11</b><span>StBerG lizenziert</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-band">
+    <div class="wrap">
+      <div class="hero-img-row">
+        <div class="hero-img-card">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80&auto=format" alt="Beratungsgespräch" loading="lazy">
+          <div class="img-overlay"></div>
+          <span class="img-label">Persönliche Beratung</span>
+        </div>
+        <div class="hero-img-card">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80&auto=format" alt="Steuerunterlagen" loading="lazy">
+          <div class="img-overlay"></div>
+          <span class="img-label">Einkommensteuererklärung</span>
+        </div>
+        <div class="hero-img-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80&auto=format" alt="Finanzplanung" loading="lazy">
+          <div class="img-overlay"></div>
+          <span class="img-label">Steuerbescheid prüfen</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="who" id="who">
+  <div class="wrap">
+    <div class="rv">
+      <span class="section-tag">Für wen wir da sind</span>
+      <h2>Wir helfen Ihnen, wenn Sie …</h2>
+      <p class="lead">Als Lohnsteuerhilfeverein dürfen wir nach § 4 Nr. 11 StBerG für alle folgenden Personengruppen die Steuererklärung erstellen.</p>
+    </div>
+    <div class="who-grid">
+      <div class="who-card rv">
+        <div class="who-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z" stroke="#C2F542" stroke-width="1.7"/><path d="M16 3H8L6 7h12l-2-4z" stroke="#C2F542" stroke-width="1.7"/></svg></div>
+        <h3>Arbeitnehmer</h3>
+        <p>Ob Vollzeit, Teilzeit oder Minijob — wir holen Ihre Lohnsteuer zurück.</p>
+      </div>
+      <div class="who-card rv">
+        <div class="who-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2a5 5 0 100 10A5 5 0 0012 2z" stroke="#C2F542" stroke-width="1.7"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#C2F542" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <h3>Beamte &amp; Pensionäre</h3>
+        <p>Sonderausgaben, Werbungskosten, Versorgungsfreibetrag — alles berücksichtigt.</p>
+      </div>
+      <div class="who-card rv">
+        <div class="who-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#C2F542" stroke-width="1.7"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" stroke="#C2F542" stroke-width="1.7"/><path d="M19 3l2 2-6 6" stroke="#C2F542" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <h3>Rentner &amp; Ruhegeldempfänger</h3>
+        <p>Altersentlastungsbetrag, Krankenversicherungsbeiträge und mehr optimal nutzen.</p>
+      </div>
+      <div class="who-card rv">
+        <div class="who-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#C2F542" stroke-width="1.7"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#C2F542" stroke-width="1.7"/></svg></div>
+        <h3>Azubis &amp; Studierende</h3>
+        <p>Studienkosten, Fahrtkosten, Arbeitsmittel — oft mehr zurück als erwartet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section class="leistungen" id="leistungen">
+  <div class="wrap">
+    <div class="rv">
+      <span class="section-tag">Leistungen</span>
+      <h2>Was wir für Sie tun.</h2>
+      <p class="lead">Alle Leistungen sind im Jahresmitgliedsbeitrag enthalten — ohne Überraschungen, ohne Zusatzkosten.</p>
+    </div>
+    <div class="l-grid">
+      <div class="l-card rv">
+        <span class="l-num">01</span>
+        <div>
+          <h3>Einkommensteuererklärung erstellen</h3>
+          <p>Wir erstellen Ihre Steuererklärung vollständig, nutzen alle Steuervorteile und sorgen für das bestmögliche Ergebnis für Sie.</p>
+        </div>
+      </div>
+      <div class="l-card rv">
+        <span class="l-num">02</span>
+        <div>
+          <h3>Ganzjährige Steuerberatung</h3>
+          <p>Sie können das ganze Jahr über zu allen Einkommensteuerfragen auf uns zählen — telefonisch und persönlich in unserer Beratungsstelle.</p>
+        </div>
+      </div>
+      <div class="l-card rv">
+        <span class="l-num">03</span>
+        <div>
+          <h3>Steuerbescheid prüfen &amp; Einspruch einlegen</h3>
+          <p>Wir prüfen jeden Steuerbescheid sorgfältig. Bei Unstimmigkeiten legen wir für Sie fristgerecht Einspruch beim Finanzamt ein.</p>
+        </div>
+      </div>
+      <div class="l-card rv">
+        <span class="l-num">04</span>
+        <div>
+          <h3>Alle Anträge auf Steuerermäßigung</h3>
+          <p>Handwerkerleistungen, haushaltsnahe Dienstleistungen, außergewöhnliche Belastungen — wir stellen alle Anträge für Sie.</p>
+        </div>
+      </div>
+      <div class="l-card rv">
+        <span class="l-num">05</span>
+        <div>
+          <h3>Kommunikation mit dem Finanzamt</h3>
+          <p>Schriftverkehr, Rückfragen, Fristen — wir übernehmen die komplette Kommunikation mit den Behörden für Sie.</p>
+        </div>
+      </div>
+      <div class="l-card rv">
+        <span class="l-num">06</span>
+        <div>
+          <h3>Vermietung, Kapitalerträge &amp; PV-Anlagen</h3>
+          <p>Auch bei Einkünften aus Vermietung &amp; Verpachtung sowie Photovoltaikanlagen bis 30 kW sind wir in vielen Fällen der richtige Ansprechpartner.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEITRAG -->
+<section class="beitrag" id="beitrag">
+  <div class="wrap">
+    <div class="beitrag-grid">
+      <div class="beitrag-visual rv">
+        <div class="bv-label">Mitgliedsbeitrag ab</div>
+        <div class="bv-price"><sup>€</sup>39 <sub>/ Jahr</sub></div>
+        <p class="bv-hint">einkommensabhängig, keine versteckten Kosten</p>
+        <ul class="bv-list">
+          <li>Steuererklärung inklusive</li>
+          <li>Ganzjährige Beratung inklusive</li>
+          <li>Bescheidprüfung inklusive</li>
+          <li>Einspruchsverfahren inklusive</li>
+          <li>Ämterkommunikation inklusive</li>
+        </ul>
+      </div>
+      <div class="beitrag-text rv">
+        <span class="section-tag">Mitgliedschaft</span>
+        <h2>Viel Leistung, ein fairer Beitrag.</h2>
+        <p>Im Gegensatz zu Steuerberatern zahlen Sie bei uns keinen Stundensatz und keine Einzelabrechnung nach Gebührenordnung. Ein überschaubarer Jahresbeitrag deckt alle unsere Leistungen für das gesamte Jahr ab.</p>
+        <p>Der Beitrag richtet sich nach Ihren Jahreseinnahmen — so zahlen Sie nur das, was Ihrem Einkommen entspricht. Für viele Mitglieder übersteigt die Steuerrückerstattung den Beitrag um ein Vielfaches.</p>
+        <a href="#contact" class="btn btn-lime">Jetzt Mitglied werden</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="wrap">
+    <div class="rv">
+      <span class="section-tag">So einfach geht's</span>
+      <h2>Vier Schritte zur Steuerrückerstattung.</h2>
+      <p class="lead">Von der Mitgliedschaft bis zum Geld auf dem Konto — wir begleiten Sie jeden Schritt.</p>
+    </div>
+    <div class="p-track">
+      <div class="p-step rv"><div class="p-dot">1</div><h4>Mitglied werden</h4><p>Melden Sie sich telefonisch oder persönlich bei uns an. Die Aufnahme ist unkompliziert und schnell erledigt.</p></div>
+      <div class="p-step rv"><div class="p-dot">2</div><h4>Unterlagen einreichen</h4><p>Lohnsteuerbescheinigung, Steuer-ID, Belege — wir sagen Ihnen genau, was wir brauchen.</p></div>
+      <div class="p-step rv"><div class="p-dot">3</div><h4>Erklärung erstellen</h4><p>Wir bereiten alles professionell auf, optimieren Ihre Angaben und reichen beim Finanzamt ein.</p></div>
+      <div class="p-step rv"><div class="p-dot">4</div><h4>Rückerstattung genießen</h4><p>Wir prüfen den Steuerbescheid und sorgen dafür, dass Sie Ihr Geld bekommen.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO BAND -->
+<div class="photo-band">
+  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1400&q=80&auto=format" alt="Persönliche Steuerberatung in Apolda" loading="lazy">
+  <div class="photo-content">
+    <h2>Persönlich. Kompetent. Nah.</h2>
+    <p>In unserer Beratungsstelle in Apolda nehmen wir uns Zeit für Sie — ohne Warteschlange und ohne Zeitdruck.</p>
+    <a href="#contact" class="btn btn-lime">Termin vereinbaren</a>
+  </div>
+</div>
+
+<!-- ÖFFNUNGSZEITEN -->
+<section class="oeffnung" id="oeffnung">
+  <div class="wrap">
+    <div class="oz-grid">
+      <div class="rv">
+        <span class="section-tag">Öffnungszeiten &amp; Standort</span>
+        <h2>Wir sind für Sie da.</h2>
+        <p style="color:var(--slate);margin:14px 0 10px;">Besuchen Sie uns in unserer Beratungsstelle — oder rufen Sie uns einfach an, um einen Termin zu vereinbaren.</p>
+        <p style="color:var(--slate);font-size:0.9rem;margin-bottom:28px;">Termine außerhalb der regulären Öffnungszeiten sind nach Vereinbarung möglich.</p>
+        <a href="#contact" class="btn btn-lime">Jetzt anrufen: 03644 617785</a>
+      </div>
+      <div class="rv">
+        <div class="oz-times">
+          <h3>Öffnungszeiten Apolda</h3>
+          <div class="oz-row"><span class="day">Montag</span><span class="time">10:00 – 12:00 &nbsp; 14:00 – 18:00 Uhr</span></div>
+          <div class="oz-row"><span class="day">Dienstag</span><span class="time">10:00 – 12:00 &nbsp; 14:00 – 18:00 Uhr</span></div>
+          <div class="oz-row"><span class="day">Mittwoch</span><span class="time oz-closed">geschlossen</span></div>
+          <div class="oz-row"><span class="day">Donnerstag</span><span class="time">10:00 – 12:00 &nbsp; 14:00 – 18:00 Uhr</span></div>
+          <div class="oz-row"><span class="day">Freitag</span><span class="time">10:00 – 12:00 &nbsp; 14:00 – 16:00 Uhr</span></div>
+          <div class="oz-row"><span class="day">Samstag / Sonntag</span><span class="time oz-closed">geschlossen</span></div>
+        </div>
+        <div class="oz-note">Für Mitglieder, die tagsüber verhindert sind, vereinbaren wir gern Abendtermine.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="rv">
+      <span class="section-tag">Kontakt</span>
+      <h2>Sprechen Sie uns an.</h2>
+      <p class="lead">Ob Fragen zur Mitgliedschaft, zur Steuererklärung oder zum Ablauf — wir antworten schnell und persönlich.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="cform rv" id="cForm">
+        <div class="field"><label for="name">Ihr Name</label><input type="text" id="name" name="name" placeholder="Max Mustermann" required></div>
+        <div class="field"><label for="email">E-Mail</label><input type="email" id="email" name="email" placeholder="max@beispiel.de" required></div>
+        <div class="field"><label for="tel">Telefon (optional)</label><input type="tel" id="tel" name="tel" placeholder="03644 …"></div>
+        <div class="field"><label for="msg">Ihre Nachricht</label><textarea id="msg" name="msg" rows="4" placeholder="Worum geht es bei Ihrer Anfrage?" required></textarea></div>
+        <button type="submit" class="btn btn-lime">Nachricht senden</button>
+      </form>
+      <div class="cinfo">
+        <div class="ci rv"><h4>Adresse</h4><p>Ernst-Thälmann-Ring 39<br>99510 Apolda</p></div>
+        <div class="ci rv"><h4>Telefon</h4><p><a href="tel:03644617785">03644 617785</a></p></div>
+        <div class="ci rv"><h4>Öffnungszeiten</h4><p>Mo, Di, Do: 10–12 &amp; 14–18 Uhr<br>Fr: 10–12 &amp; 14–16 Uhr</p></div>
+        <div class="map-wrap rv">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2479.21!2d11.5095!3d51.0245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a637e3bc8abd65%3A0x1!2sErnst-Th%C3%A4lmann-Ring+39%2C+99510+Apolda!5e0!3m2!1sde!2sde!4v1698067324658" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="ft-brand">
+        <strong>Lohnsteuerhilfeverein Apolda e.V.</strong>
+        <p>Ihre Beratungsstelle für Steuerrecht in Apolda und Umgebung — persönlich, kompetent, günstig.</p>
+      </div>
+      <div class="ft-cols">
+        <div class="ft-col">
+          <h5>Navigation</h5>
+          <a href="#who">Für wen</a>
+          <a href="#leistungen">Leistungen</a>
+          <a href="#beitrag">Mitgliedschaft</a>
+          <a href="#contact">Kontakt</a>
+        </div>
+        <div class="ft-col">
+          <h5>Rechtliches</h5>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="#contact">Impressum</a>
+        </div>
+        <div class="ft-col">
+          <h5>Kontakt</h5>
+          <a href="tel:03644617785">03644 617785</a>
+          <a href="https://goo.gl/maps/apolda">Anfahrt</a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p>&copy; 2026 Lohnsteuerhilfeverein Apolda e.V. Alle Rechte vorbehalten.</p>
+      <p>Beratung nach § 4 Nr. 11 StBerG</p>
+    </div>
+  </div>
+</footer>
+
+<!-- COOKIE -->
+<div class="cookie" id="ck">
+  <p>Diese Website verwendet Cookies für ein optimales Nutzererlebnis. Mehr in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+  <button class="btn btn-lime" id="ckOk" style="padding:10px 20px;font-size:0.88rem;">OK</button>
+</div>
+
+<script>
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 30));
+
+const bBtn = document.getElementById('bBtn'), mm = document.getElementById('mm');
+bBtn.onclick = () => mm.classList.add('open');
+document.getElementById('mClose').onclick = () => mm.classList.remove('open');
+mm.querySelectorAll('a').forEach(a => a.onclick = () => mm.classList.remove('open'));
+
+const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } }), { threshold:.14 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+const ck = document.getElementById('ck');
+setTimeout(() => ck.classList.add('show'), 800);
+document.getElementById('ckOk').onclick = () => ck.classList.remove('show');
+
+document.getElementById('cForm').onsubmit = function(e) {
+  e.preventDefault();
+  const n = document.getElementById('name').value;
+  const m = document.getElementById('msg').value;
+  const t = document.getElementById('tel').value;
+  const em = document.getElementById('email').value;
+  const subj = encodeURIComponent('Anfrage von ' + n + ' über die Website');
+  const body = encodeURIComponent(m + '\n\nTel: ' + t + '\nE-Mail: ' + em);
+  window.location.href = `mailto:info@lohnsteuerhilfeverein-apolda.de?subject=${subj}&body=${body}`;
+};
+</script>
+</body>
+</html>
