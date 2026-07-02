@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Lohnsteuerhilfeverein Apolda e.V. – Ihre Steuerberatung in Apolda. Einkommensteuererklärung für Arbeitnehmer, Rentner, Beamte und mehr. Mitgliedschaft ab 39 €/Jahr.">
+<meta name="description" content="Lohnsteuerhilfeverein Apolda e.V. – Steuerberatung in Eckartsberga. Einkommensteuererklärung für Arbeitnehmer, Rentner, Beamte und mehr. Mitgliedschaft ab 39 €/Jahr.">
 <title>Lohnsteuerhilfeverein Apolda e.V. — Ihre Steuern. Unser Job.</title>
+<link rel="icon" href="images/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -46,10 +47,9 @@ header.scrolled {
 .hrow { display:flex; align-items:center; justify-content:space-between; }
 .brand { display:flex; align-items:center; gap:10px; }
 .brand-logo {
-  width:40px; height:40px; background:var(--lime); border-radius:10px;
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  height:48px; width:auto; display:block; flex-shrink:0;
 }
-.brand-logo svg { width:22px; height:22px; }
+.brand-logo img { height:48px; width:auto; display:block; }
 .brand-text { line-height:1.2; }
 .brand-text strong { display:block; font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.98rem; color:var(--white); }
 .brand-text small { font-size:0.66rem; letter-spacing:0.07em; text-transform:uppercase; color:rgba(255,255,255,0.55); }
@@ -182,6 +182,52 @@ nav.main a:hover { background:rgba(255,255,255,0.1); color:#fff; }
 }
 .l-card h3 { font-family:'DM Sans',sans-serif; font-weight:700; color:#fff; margin-bottom:8px; }
 .l-card p { color:rgba(255,255,255,0.55); font-size:0.93rem; }
+
+/* ─── STANDORTE ─── */
+.standorte-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.standort-card { background:var(--white); border:1px solid var(--border); border-radius:var(--r-lg); padding:32px; position:relative; overflow:hidden; }
+.standort-active { border-color:var(--teal); box-shadow:0 0 0 2px var(--teal), var(--sh); }
+.standort-sitz { opacity:.85; }
+.standort-badge { display:inline-block; background:var(--lime); color:var(--teal); font-size:0.74rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:5px 12px; border-radius:99px; margin-bottom:14px; }
+.standort-badge-grey { background:var(--sand-dk); color:var(--slate); }
+.standort-card h3 { font-size:1.5rem; margin-bottom:4px; }
+.standort-sub { color:var(--slate); font-size:0.88rem; margin-bottom:22px; }
+.standort-info { display:flex; flex-direction:column; gap:11px; margin-bottom:24px; }
+.si-row { display:flex; align-items:flex-start; gap:10px; font-size:0.92rem; color:var(--ink); }
+.si-row svg { flex-shrink:0; margin-top:2px; color:var(--teal); }
+.si-row a { color:var(--teal); font-weight:500; }
+.si-row a:hover { color:var(--lime-dk); }
+.si-hint { background:var(--sand); border-radius:10px; padding:10px 12px; }
+.si-hint svg { color:var(--slate); }
+.si-hint span { color:var(--slate); font-size:0.86rem; }
+.standort-map iframe { width:100%; height:190px; border:0; border-radius:var(--r-sm,10px); display:block; }
+@media(max-width:760px){ .standorte-grid { grid-template-columns:1fr; } }
+
+/* ─── WUSSTEN SIE ─── */
+.wussten { background:var(--teal-mid); padding:80px 0; }
+.w-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.w-card { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:var(--r); padding:28px 22px; }
+.w-icon { font-family:'DM Serif Display',serif; font-size:2rem; color:var(--lime); margin-bottom:14px; line-height:1; }
+.w-card p { color:rgba(255,255,255,0.7); font-size:0.92rem; }
+.w-card strong { color:#fff; }
+.wussten .section-tag { background:rgba(194,245,66,0.1); color:var(--lime); }
+.wussten .section-tag::before { background:var(--lime); }
+.wussten h2 { color:#fff; font-size:2.4rem; }
+@media(max-width:960px){ .w-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:560px){ .w-grid { grid-template-columns:1fr; } }
+
+/* ─── MEHR ABSETZEN ─── */
+.mehr-grid { margin-top:56px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:var(--r-lg); padding:40px; }
+.mehr-head { margin-bottom:32px; }
+.mehr-head h3 { font-family:'DM Serif Display',serif; color:#fff; font-size:1.6rem; margin-bottom:10px; }
+.mehr-head p { color:rgba(255,255,255,0.55); font-size:0.95rem; }
+.mehr-cols { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.mehr-label { display:block; font-weight:700; font-size:0.8rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--lime); margin-bottom:10px; }
+.mehr-col ul { list-style:none; }
+.mehr-col ul li { color:rgba(255,255,255,0.65); font-size:0.88rem; padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+.mehr-col ul li:last-child { border-bottom:none; }
+@media(max-width:960px){ .mehr-cols { grid-template-columns:repeat(2,1fr); } }
+@media(max-width:560px){ .mehr-cols { grid-template-columns:1fr; } }
 
 /* ─── BEITRAG ─── */
 .beitrag { background:var(--sand); padding:96px 0; }
@@ -344,7 +390,7 @@ footer { background:var(--ink); padding:54px 0 26px; }
   <div class="wrap hrow">
     <a href="#top" class="brand">
       <span class="brand-logo">
-        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="2" fill="#0A2E2E"/><rect x="13" y="3" width="8" height="5" rx="2" fill="#0A2E2E"/><rect x="13" y="10" width="8" height="11" rx="2" fill="#0A2E2E"/><rect x="3" y="13" width="8" height="8" rx="2" fill="#0A2E2E"/></svg>
+        <img src="/images/logo.png" alt="Lohnsteuerhilfeverein Apolda e.V. Logo">
       </span>
       <span class="brand-text">
         <strong>Lohnsteuerhilfeverein</strong>
@@ -376,7 +422,7 @@ footer { background:var(--ink); padding:54px 0 26px; }
 <section class="hero">
   <div class="hero-top">
     <div class="wrap">
-      <div class="pill"><span></span>Beratungsstelle Apolda · Thüringen</div>
+      <div class="pill"><span></span>Beratungsstelle Eckartsberga · Thüringen</div>
       <h1>Ihre Steuern.<br><em>Unser Job.</em><br>Ihr Vorteil.</h1>
       <p class="sub">Als gemeinnütziger Lohnsteuerhilfeverein holen wir für Sie die maximale Steuerrückerstattung heraus — zu einem fairen Mitgliedsbeitrag statt teuren Steuerberatertarifen.</p>
       <div class="hero-btns">
@@ -459,43 +505,113 @@ footer { background:var(--ink); padding:54px 0 26px; }
         <span class="l-num">01</span>
         <div>
           <h3>Einkommensteuererklärung erstellen</h3>
-          <p>Wir erstellen Ihre Steuererklärung vollständig, nutzen alle Steuervorteile und sorgen für das bestmögliche Ergebnis für Sie.</p>
+          <p>Wir prüfen Ihre persönliche steuerliche Situation, berechnen kurzfristig Ihr steuerliches Ergebnis und erstellen die vollständige Erklärung für Sie.</p>
         </div>
       </div>
       <div class="l-card rv">
         <span class="l-num">02</span>
         <div>
           <h3>Ganzjährige Steuerberatung</h3>
-          <p>Sie können das ganze Jahr über zu allen Einkommensteuerfragen auf uns zählen — telefonisch und persönlich in unserer Beratungsstelle.</p>
+          <p>Sie können das ganze Jahr über zu allen Einkommensteuerfragen auf uns zählen — telefonisch und persönlich in unseren Beratungsstellen.</p>
         </div>
       </div>
       <div class="l-card rv">
         <span class="l-num">03</span>
         <div>
           <h3>Steuerbescheid prüfen &amp; Einspruch einlegen</h3>
-          <p>Wir prüfen jeden Steuerbescheid sorgfältig. Bei Unstimmigkeiten legen wir für Sie fristgerecht Einspruch beim Finanzamt ein.</p>
+          <p>Wir überprüfen jeden Steuerbescheid sorgfältig — laut Bundesrechnungshof ist jeder zweite Bescheid fehlerhaft. Bei Unstimmigkeiten legen wir fristgerecht Einspruch ein.</p>
         </div>
       </div>
       <div class="l-card rv">
         <span class="l-num">04</span>
         <div>
-          <h3>Alle Anträge auf Steuerermäßigung</h3>
-          <p>Handwerkerleistungen, haushaltsnahe Dienstleistungen, außergewöhnliche Belastungen — wir stellen alle Anträge für Sie.</p>
+          <h3>Antrag auf Lohnsteuerermäßigung</h3>
+          <p>Wir stellen alle Anträge auf Steuerermäßigung für Sie — Handwerkerleistungen, haushaltsnahe Dienstleistungen, außergewöhnliche Belastungen und mehr.</p>
         </div>
       </div>
       <div class="l-card rv">
         <span class="l-num">05</span>
         <div>
-          <h3>Kommunikation mit dem Finanzamt</h3>
-          <p>Schriftverkehr, Rückfragen, Fristen — wir übernehmen die komplette Kommunikation mit den Behörden für Sie.</p>
+          <h3>Kindergeld &amp; Altersvorsorge</h3>
+          <p>Wir unterstützen Sie bei Kindergeld nach dem EStG sowie bei der Förderung der zusätzlichen Altersvorsorge (Riester-Rente).</p>
         </div>
       </div>
       <div class="l-card rv">
         <span class="l-num">06</span>
         <div>
-          <h3>Vermietung, Kapitalerträge &amp; PV-Anlagen</h3>
-          <p>Auch bei Einkünften aus Vermietung &amp; Verpachtung sowie Photovoltaikanlagen bis 30 kW sind wir in vielen Fällen der richtige Ansprechpartner.</p>
+          <h3>Beratung für alle Einkunftsarten</h3>
+          <p>Nichtselbstständige Arbeit, Renten &amp; Pensionen, Unterhaltsleistungen, Kapitalvermögen, Vermietung &amp; Verpachtung sowie ehrenamtliche Tätigkeiten.</p>
         </div>
+      </div>
+    </div>
+
+    <!-- MEHR ABSETZEN -->
+    <div class="mehr-grid rv">
+      <div class="mehr-head">
+        <h3>Sie können mehr absetzen als Sie glauben …</h3>
+        <p>In einer persönlichen Beratung prüfen wir Ihre individuelle steuerliche Situation und senken Ihre Steuerlast gezielt.</p>
+      </div>
+      <div class="mehr-cols">
+        <div class="mehr-col">
+          <span class="mehr-label">Fahrtkosten</span>
+          <ul><li>Weg zur Arbeitsstätte</li><li>Reisekosten</li><li>Wege zur Einsatzstelle / Baustelle</li></ul>
+        </div>
+        <div class="mehr-col">
+          <span class="mehr-label">Werbungskosten</span>
+          <ul><li>Fortbildung</li><li>Berufsverbände</li><li>Telefon &amp; Computer</li><li>Doppelte Haushaltsführung</li><li>Umzug, Arbeitszimmer</li><li>Verpflegungsmehraufwand</li></ul>
+        </div>
+        <div class="mehr-col">
+          <span class="mehr-label">Kinder</span>
+          <ul><li>Kindergeld</li><li>Betreuungsfreibetrag</li><li>Entlastungsbetrag für Alleinerziehende</li><li>Kinderbetreuungskosten</li></ul>
+        </div>
+        <div class="mehr-col">
+          <span class="mehr-label">Sonderausgaben</span>
+          <ul><li>Versicherungen</li><li>Spenden</li><li>Ausbildungskosten</li><li>Kirchensteuer, Schulgeld</li></ul>
+        </div>
+        <div class="mehr-col">
+          <span class="mehr-label">Grundbesitz</span>
+          <ul><li>Renovierungskosten</li><li>Baukosten</li><li>Abschreibung</li><li>Schuldzinsen</li></ul>
+        </div>
+        <div class="mehr-col">
+          <span class="mehr-label">Außergew. Belastungen</span>
+          <ul><li>Krankheitskosten</li><li>Unterhaltsleistungen</li><li>Scheidungskosten</li><li>Beerdigungskosten</li></ul>
+        </div>
+        <div class="mehr-col">
+          <span class="mehr-label">Kapitalvermögen</span>
+          <ul><li>Zinsabschlagsteuer</li><li>Kapitalertragsteuer</li><li>Kontoführungsgebühren</li><li>Depotgebühren</li></ul>
+        </div>
+        <div class="mehr-col">
+          <span class="mehr-label">Steuerermäßigungen</span>
+          <ul><li>Haushaltsnahe Dienstleistungen</li><li>Betreuungs- &amp; Pflegekosten</li><li>Handwerkerleistungen</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WUSSTEN SIE -->
+<section class="wussten">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;margin-bottom:42px;">
+      <span class="section-tag">Zahlen &amp; Fakten</span>
+      <h2>Wussten Sie, dass …</h2>
+    </div>
+    <div class="w-grid">
+      <div class="w-card rv">
+        <div class="w-icon">€</div>
+        <p><strong>500 Millionen Euro</strong> werden jährlich verschenkt, weil keine oder falsche Einkommensteuererklärungen abgegeben werden.</p>
+      </div>
+      <div class="w-card rv">
+        <div class="w-icon">½</div>
+        <p>Laut Bundesrechnungshof ist <strong>jeder zweite Steuerbescheid fehlerhaft</strong> — zu Ihren Ungunsten.</p>
+      </div>
+      <div class="w-card rv">
+        <div class="w-icon">40</div>
+        <p>Lohnsteuerhilfevereine vertreten seit <strong>über 40 Jahren</strong> die Interessen der Arbeitnehmer gegenüber den Finanzämtern erfolgreich.</p>
+      </div>
+      <div class="w-card rv">
+        <div class="w-icon">95%</div>
+        <p><strong>95 % der Mitglieder</strong> schätzen die Fachkompetenz der Lohnsteuerhilfe-Berater — und kommen Jahr für Jahr wieder.</p>
       </div>
     </div>
   </div>
@@ -555,29 +671,71 @@ footer { background:var(--ink); padding:54px 0 26px; }
   </div>
 </div>
 
-<!-- ÖFFNUNGSZEITEN -->
+<!-- STANDORTE -->
 <section class="oeffnung" id="oeffnung">
   <div class="wrap">
-    <div class="oz-grid">
-      <div class="rv">
-        <span class="section-tag">Öffnungszeiten &amp; Standort</span>
-        <h2>Wir sind für Sie da.</h2>
-        <p style="color:var(--slate);margin:14px 0 10px;">Besuchen Sie uns in unserer Beratungsstelle — oder rufen Sie uns einfach an, um einen Termin zu vereinbaren.</p>
-        <p style="color:var(--slate);font-size:0.9rem;margin-bottom:28px;">Termine außerhalb der regulären Öffnungszeiten sind nach Vereinbarung möglich.</p>
-        <a href="#contact" class="btn btn-lime">Jetzt anrufen: 03644 617785</a>
-      </div>
-      <div class="rv">
-        <div class="oz-times">
-          <h3>Öffnungszeiten Apolda</h3>
-          <div class="oz-row"><span class="day">Montag</span><span class="time">10:00 – 12:00 &nbsp; 14:00 – 18:00 Uhr</span></div>
-          <div class="oz-row"><span class="day">Dienstag</span><span class="time">10:00 – 12:00 &nbsp; 14:00 – 18:00 Uhr</span></div>
-          <div class="oz-row"><span class="day">Mittwoch</span><span class="time oz-closed">geschlossen</span></div>
-          <div class="oz-row"><span class="day">Donnerstag</span><span class="time">10:00 – 12:00 &nbsp; 14:00 – 18:00 Uhr</span></div>
-          <div class="oz-row"><span class="day">Freitag</span><span class="time">10:00 – 12:00 &nbsp; 14:00 – 16:00 Uhr</span></div>
-          <div class="oz-row"><span class="day">Samstag / Sonntag</span><span class="time oz-closed">geschlossen</span></div>
+    <div class="rv" style="margin-bottom:48px;">
+      <span class="section-tag">Standorte</span>
+      <h2>Wo Sie uns finden.</h2>
+      <p style="color:var(--slate);margin-top:12px;max-width:560px;">
+        Der Verein hat seinen eingetragenen Sitz in Utenbach. Die persönliche Beratung findet ausschließlich in Eckartsberga statt — bitte kommen Sie dorthin oder melden Sie sich vorab telefonisch.
+      </p>
+    </div>
+
+    <div class="standorte-grid rv">
+
+      <!-- Karte 1: Beratungsstelle Eckartsberga (Hauptkontakt) -->
+      <div class="standort-card standort-active">
+        <div class="standort-badge">Beratungsstelle</div>
+        <h3>Eckartsberga</h3>
+        <p class="standort-sub">Hier finden Beratung und Termine statt</p>
+        <div class="standort-info">
+          <div class="si-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+            <span>Eichenweg 9, 06648 Eckartsberga</span>
+          </div>
+          <div class="si-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.5 11.5 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.01l-2.2 2.21z" fill="currentColor"/></svg>
+            <a href="tel:03446720142">034467 / 20142</a>
+          </div>
+          <div class="si-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></svg>
+            <a href="mailto:dana-berger@t-online.de">dana-berger@t-online.de</a>
+          </div>
+          <div class="si-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span>Mo – Fr: 08:00 – 16:00 Uhr</span>
+          </div>
+          <div class="si-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2a5 5 0 100 10A5 5 0 0012 2z" fill="currentColor" opacity=".8"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span>Dana Berger · Vereinsvorsitzende</span>
+          </div>
         </div>
-        <div class="oz-note">Für Mitglieder, die tagsüber verhindert sind, vereinbaren wir gern Abendtermine.</div>
+        <div class="standort-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2506.2!2d11.573!3d51.199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a64ed8f0000001%3A0x1!2sEichenweg+9%2C+06648+Eckartsberga!5e0!3m2!1sde!2sde!4v1698067324658" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
+
+      <!-- Karte 2: Vereinssitz Utenbach (nur eingetragen) -->
+      <div class="standort-card standort-sitz">
+        <div class="standort-badge standort-badge-grey">Eingetragener Vereinssitz</div>
+        <h3>Utenbach</h3>
+        <p class="standort-sub">Hier ist der Verein registriert — kein Besuch möglich</p>
+        <div class="standort-info">
+          <div class="si-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+            <span>Am Anger 59, Utenbach</span>
+          </div>
+          <div class="si-row si-hint">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-7h2v2h-2v-2zm0-8h2v6h-2V7z" fill="currentColor"/></svg>
+            <span>Bitte wenden Sie sich für Termine und Beratung ausschließlich an unsere Beratungsstelle in Eckartsberga.</span>
+          </div>
+        </div>
+        <div class="standort-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2506.5!2d11.512!3d51.112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a640000000001%3A0x1!2sAm+Anger+59%2C+Utenbach!5e0!3m2!1sde!2sde!4v1698067324659" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -599,11 +757,22 @@ footer { background:var(--ink); padding:54px 0 26px; }
         <button type="submit" class="btn btn-lime">Nachricht senden</button>
       </form>
       <div class="cinfo">
-        <div class="ci rv"><h4>Adresse</h4><p>Ernst-Thälmann-Ring 39<br>99510 Apolda</p></div>
-        <div class="ci rv"><h4>Telefon</h4><p><a href="tel:03644617785">03644 617785</a></p></div>
-        <div class="ci rv"><h4>Öffnungszeiten</h4><p>Mo, Di, Do: 10–12 &amp; 14–18 Uhr<br>Fr: 10–12 &amp; 14–16 Uhr</p></div>
-        <div class="map-wrap rv">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2479.21!2d11.5095!3d51.0245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a637e3bc8abd65%3A0x1!2sErnst-Th%C3%A4lmann-Ring+39%2C+99510+Apolda!5e0!3m2!1sde!2sde!4v1698067324658" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="ci rv">
+          <h4>Beratungsstelle</h4>
+          <p>Eichenweg 9<br>06648 Eckartsberga</p>
+        </div>
+        <div class="ci rv">
+          <h4>Ansprechpartnerin</h4>
+          <p>Dana Berger<br><span style="font-size:0.85rem;opacity:.7;">Vereinsvorsitzende</span></p>
+        </div>
+        <div class="ci rv">
+          <h4>Telefon &amp; E-Mail</h4>
+          <p><a href="tel:03446720142">034467 / 20142</a><br>
+          <a href="mailto:dana-berger@t-online.de">dana-berger@t-online.de</a></p>
+        </div>
+        <div class="ci rv">
+          <h4>Öffnungszeiten</h4>
+          <p>Mo – Fr: 08:00 – 16:00 Uhr</p>
         </div>
       </div>
     </div>
@@ -617,8 +786,8 @@ footer { background:var(--ink); padding:54px 0 26px; }
   <div class="wrap">
     <div class="ft">
       <div class="ft-brand">
-        <strong>Lohnsteuerhilfeverein Apolda e.V.</strong>
-        <p>Ihre Beratungsstelle für Steuerrecht in Apolda und Umgebung — persönlich, kompetent, günstig.</p>
+        <img src="/images/Logo.png" alt="Lohnsteuerhilfeverein Apolda e.V." style="height:56px;width:auto;margin-bottom:12px;">
+        <p>Ihre Beratungsstelle für Steuerrecht in Eckartsberga und Umgebung — persönlich, kompetent, günstig.</p>
       </div>
       <div class="ft-cols">
         <div class="ft-col">
@@ -635,8 +804,9 @@ footer { background:var(--ink); padding:54px 0 26px; }
         </div>
         <div class="ft-col">
           <h5>Kontakt</h5>
-          <a href="tel:03644617785">03644 617785</a>
-          <a href="https://goo.gl/maps/apolda">Anfahrt</a>
+          <a href="tel:03446720142">034467 / 20142</a>
+          <a href="mailto:dana-berger@t-online.de">dana-berger@t-online.de</a>
+          <a href="#oeffnung">Standorte &amp; Zeiten</a>
         </div>
       </div>
     </div>
@@ -677,7 +847,7 @@ document.getElementById('cForm').onsubmit = function(e) {
   const em = document.getElementById('email').value;
   const subj = encodeURIComponent('Anfrage von ' + n + ' über die Website');
   const body = encodeURIComponent(m + '\n\nTel: ' + t + '\nE-Mail: ' + em);
-  window.location.href = `mailto:info@lohnsteuerhilfeverein-apolda.de?subject=${subj}&body=${body}`;
+  window.location.href = `mailto:dana-berger@t-online.de?subject=${subj}&body=${body}`;
 };
 </script>
 </body>
