@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Lohnsteuerhilfeverein Apolda e.V. – Steuerberatung in Eckartsberga. Mitgliedschaft ab 40 €/Jahr. Einkommensteuererklärung für Arbeitnehmer, Rentner, Beamte und mehr.">
 <title>Lohnsteuerhilfeverein Apolda e.V. — Ihre Steuern. Unser Job.</title>
-<link rel="icon" href="images/logo.png" type="image/png">
+<link rel="icon" href="/images/Logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -189,6 +189,10 @@ nav.main a:hover { background:rgba(255,255,255,0.1); color:#fff; }
 .oeffnung .section-tag::before { background:var(--lime); }
 .oeffnung h2 { color:#fff; font-size:2.4rem; margin-bottom:14px; }
 .oeffnung > .wrap > .rv > p { color:rgba(255,255,255,0.55); max-width:560px; }
+@media(max-width:760px){
+  .oeffnung h2 { color:var(--ink); }
+  .oeffnung > .wrap > .rv > p { color:var(--slate); }
+}
 
 .standorte-grid {
   display:grid; grid-template-columns:1fr 1fr; gap:24px;
@@ -287,6 +291,9 @@ nav.main a:hover { background:rgba(255,255,255,0.1); color:#fff; }
   content:"✓"; width:22px; height:22px; background:var(--lime); border-radius:50%;
   display:flex; align-items:center; justify-content:center;
   font-size:0.7rem; font-weight:900; color:var(--teal); flex-shrink:0; margin-top:1px;
+}
+@media(max-width:960px){
+  .bv-list li { color:var(--ink); }
 }
 .beitrag-text h2 { font-size:2.4rem; margin-bottom:16px; }
 .beitrag-text p { color:var(--slate); margin-bottom:18px; }
@@ -433,7 +440,7 @@ footer { background:var(--ink); padding:54px 0 26px; }
   <div class="wrap hrow">
     <a href="#top" class="brand">
       <span class="brand-logo">
-        <img src="images/logo.png" alt="Lohnsteuerhilfeverein Apolda e.V. Logo">
+        <img src="/images/Logo.png" alt="Lohnsteuerhilfeverein Apolda e.V. Logo">
       </span>
       <span class="brand-text">
         <strong>Lohnsteuerhilfeverein</strong>
@@ -845,7 +852,7 @@ footer { background:var(--ink); padding:54px 0 26px; }
   <div class="wrap">
     <div class="ft">
       <div class="ft-brand">
-        <img src="images/logo.png" alt="Lohnsteuerhilfeverein Apolda e.V." style="height:56px;width:auto;margin-bottom:12px;">
+        <img src="/images/Logo.png" alt="Lohnsteuerhilfeverein Apolda e.V." style="height:56px;width:auto;margin-bottom:12px;">
         <p>Ihre Beratungsstelle für Steuerrecht in Eckartsberga und Umgebung — persönlich, kompetent, günstig.</p>
       </div>
       <div class="ft-cols">
